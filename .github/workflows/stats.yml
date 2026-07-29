@@ -18,11 +18,19 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: generate stats.svg
-        uses: readme-tools/github-readme-stats-action@v1
+      # - name: generate stats.svg
+      #   uses: readme-tools/github-readme-stats-action@v1
+      #   with:
+      #     card: stats
+      #     options: username=${{ github.repository_owner }}&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false
+      #     path: dist/stats.svg
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false
+          options: username=${{ github.repository_owner }}&show_icons=true
           path: dist/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
